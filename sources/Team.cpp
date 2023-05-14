@@ -10,7 +10,7 @@ void Team::add(Character *member) {
   team.push_back(member);
 }
 
-void Team::attack(Team &other) {}
+void Team::attack(Team *other) {}
 
 int Team::stillAlive() { return 0; }
 

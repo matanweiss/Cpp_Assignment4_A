@@ -10,7 +10,7 @@ class Team {
 public:
   Team(Character *leader);
   void add(Character *member);
-  void attack(Team &other);
+  void attack(Team *other);
   int stillAlive();
   void print();
   ~Team();

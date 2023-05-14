@@ -8,7 +8,7 @@ class Team2 {
 public:
   Team2(Character *leader);
   void add(Character *member);
-  void attack(Team &other);
+  void attack(Team *other);
   int stillAlive();
   void print();
   ~Team2();

@@ -8,4 +8,4 @@ double Character::distance(const Character &other) { return 0.0; }
 void Character::hit(int damage) {}
 string Character::getName() { return "name"; }
 Point Character::getLocation() { return location; }
-void Character::print() {}
+string Character::print() { return name; }
