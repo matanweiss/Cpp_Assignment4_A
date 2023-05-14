@@ -9,3 +9,21 @@ public:
   void move(const Character &enemy);
   void slash(Character &enemy);
 };
+
+class YoungNinja : public Ninja {
+
+public:
+  YoungNinja(string name, Point &location) : Ninja(name, location, 100, 14) {}
+};
+
+class TrainedNinja : public Ninja {
+
+public:
+  TrainedNinja(string name, Point &location) : Ninja(name, location, 120, 12) {}
+};
+
+class OldNinja : public Ninja {
+
+public:
+  OldNinja(string name, Point &location) : Ninja(name, location, 150, 8) {}
+};

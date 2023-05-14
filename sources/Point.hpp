@@ -7,9 +7,9 @@ class Point
     double x;
     double y;
 
-private:
+public:
     Point(double x, double y);
     double distance(const Point& other);
     void print();
-    Point moveTowards(Point src, Point dest, double distance);
+    static Point moveTowards(Point src, Point dest, double distance);
 };
