@@ -1,6 +1,6 @@
 #include "Character.hpp"
 
-Character::Character(string name, Point &location, int hp)
+Character::Character(string name, const Point &location, int hp)
     : name(name), location(location), hp(hp) {}
 
 bool Character::isAlive() { return false; }

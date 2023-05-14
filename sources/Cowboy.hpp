@@ -5,7 +5,7 @@ class Cowboy : public Character {
   int ammo;
 
 public:
-  Cowboy(string name, Point &location);
+  Cowboy(string name,const Point &location);
   void shoot(Character* enemy);
   bool hasBullets();
   void reload();
