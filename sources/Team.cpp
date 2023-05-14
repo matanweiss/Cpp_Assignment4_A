@@ -2,9 +2,9 @@
 #include "Character.hpp"
 #include <vector>
 
-Team::Team(Character &leader) : leader(leader) { team.push_back(leader); }
+Team::Team(Character *leader) : leader(leader) { team.push_back(leader); }
 
-void Team::add(Character &member) {
+void Team::add(Character *member) {
   if (team.size() == 10)
     return;
   team.push_back(member);

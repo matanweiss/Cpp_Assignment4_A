@@ -6,8 +6,8 @@ class Ninja : public Character {
 
 public:
   Ninja(string name, Point &location, int hp, int speed);
-  void move(const Character &enemy);
-  void slash(Character &enemy);
+  void move(const Character *enemy);
+  void slash(Character *enemy);
 };
 
 class YoungNinja : public Ninja {

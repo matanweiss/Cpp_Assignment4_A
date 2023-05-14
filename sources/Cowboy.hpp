@@ -6,7 +6,7 @@ class Cowboy : public Character {
 
 public:
   Cowboy(string name, Point &location);
-  void shoot(Character enemy);
+  void shoot(Character* enemy);
   bool hasBullets();
   void reload();
 };
