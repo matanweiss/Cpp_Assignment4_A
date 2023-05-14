@@ -1,20 +1,11 @@
 #include "Character.hpp"
 
-bool Character::isAlive(){
-    return false;
-}
-double Character::distance(const Character &other){
+Character::Character(string name, Point &location, int hp)
+    : name(name), location(location), hp(hp) {}
 
-}
-void Character::hit(int damage){
-
-}
-string Character::getName(){
-    return "name";
-}
-point Character::getLocation(){
-    return location;
-}
-void Character::print(){
-    
-}
+bool Character::isAlive() { return false; }
+double Character::distance(const Character &other) { return 0.0; }
+void Character::hit(int damage) {}
+string Character::getName() { return "name"; }
+Point Character::getLocation() { return location; }
+void Character::print() {}
