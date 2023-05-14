@@ -1,7 +1,7 @@
 #include "Character.hpp"
 
-Character::Character(string name, const Point &location, int hp)
-    : name(name), location(location), hp(hp) {}
+Character::Character(string name, const Point &location, int health)
+    : name(name), location(location), health(health) {}
 
 bool Character::isAlive() { return false; }
 double Character::distance(const Character &other) { return 0.0; }

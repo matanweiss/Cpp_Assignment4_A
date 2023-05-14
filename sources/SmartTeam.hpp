@@ -1,15 +1,23 @@
 #pragma once
-#include "Character.hpp"
-#include "Team.hpp"
+#include "Cowboy.hpp"
+#include "Ninja.hpp"
+#include <vector>
 
 class SmartTeam {
-  Team team;
+  Character *leader;
+  vector<Character *> team;
 
 public:
+  SmartTeam(const SmartTeam& other);
   SmartTeam(Character *leader);
+  SmartTeam(SmartTeam&& other)noexcept;
+  SmartTeam& operator=(const SmartTeam& other);
+  SmartTeam& operator=( SmartTeam&& other)noexcept;
   void add(Character *member);
-  void attack(Team *other);
+  void attack(SmartTeam *other);
   int stillAlive();
   void print();
   ~SmartTeam();
 };
+
+namespace ariel {};

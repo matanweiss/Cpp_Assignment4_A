@@ -4,11 +4,11 @@
 
 class Point
 {
-    double x;
-    double y;
+    double xAxis;
+    double yAxis;
 
 public:
-    Point(double x, double y);
+    Point(double xAxis, double yAxis);
     double distance(const Point& other);
     void print();
     static Point moveTowards(Point src, Point dest, double distance);

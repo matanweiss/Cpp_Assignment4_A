@@ -5,10 +5,10 @@ using namespace std;
 class Character {
   string name;
   Point location;
-  int hp;
+  int health;
 
 public:
-  Character(string name,  const Point &location, int hp);
+  Character(string name,  const Point &location, int health);
   bool isAlive();
   double distance(const Character &other);
   void hit(int damage);
