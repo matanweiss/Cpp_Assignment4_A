@@ -15,4 +15,5 @@ public:
   string getName();
   Point getLocation();
   string print();
+  int getHealth();
 };

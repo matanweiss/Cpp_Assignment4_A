@@ -20,6 +20,27 @@ TEST_CASE("Point test") {
 }
 
 TEST_CASE("Team test") {
+  Cowboy c("Yossi", Point(1, 2));
+  OldNinja o("Oogway", Point(5, 5));
+
+  // cannot shoot itself
+  CHECK_THROWS(c.shoot(&c));
+
+  // shoot without bullets
+  c.shoot(&o);
+  c.shoot(&o);
+  c.shoot(&o);
+  c.shoot(&o);
+  c.shoot(&o);
+  c.shoot(&o);
+  int hp = o.getHealth();
+  CHECK(c.hasBullets());
+  c.shoot(&o);
+  CHECK(hp == o.getHealth());
+  CHECK_FALSE(c.hasBullets());
+}
+
+TEST_CASE("Team test") {
   Cowboy *c1 = new Cowboy("Arnon", Point(2, 2));
   Cowboy *c2 = new Cowboy("Juan", Point(6, 0));
   Team t1(c1);
@@ -33,6 +54,7 @@ TEST_CASE("Team test") {
   t1.add(c2);
   CHECK_THROWS(t1.add(c2));
 
+  // add more than 10 members
   t1.add(new Cowboy("Amnon", Point(3, 1)));
   t1.add(new Cowboy("Amnon", Point(3, 1)));
   t1.add(new Cowboy("Amnon", Point(3, 1)));

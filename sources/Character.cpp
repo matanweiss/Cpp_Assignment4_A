@@ -9,3 +9,4 @@ void Character::hit(int damage) {}
 string Character::getName() { return "name"; }
 Point Character::getLocation() { return location; }
 string Character::print() { return name; }
+int Character::getHealth() { return health; }
