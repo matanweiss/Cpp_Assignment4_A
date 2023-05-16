@@ -40,6 +40,12 @@ TEST_CASE("Cowboy test") {
   c.shoot(&o);
   CHECK(hp == o.getHealth());
   CHECK_FALSE(c.hasBullets());
+  
+  // reload
+  c.reload();
+  CHECK(c.hasBullets());
+  c.shoot(&o);
+  CHECK(hp!=o.getHealth());
 }
 
 TEST_CASE("Ninja test"){

@@ -2,11 +2,11 @@
 #include "Character.hpp"
 #include <vector>
 
-Team2::Team2(const Team2 &other) : leader(other.leader) {}
+Team2::Team2(const Team2 &other) :Team(other), leader(other.leader) {}
 
-Team2::Team2(Character *leader) : leader(leader) { team.push_back(leader); }
+Team2::Team2(Character *leader) : Team(leader),leader(leader) { team.push_back(leader); }
 
-Team2::Team2(Team2 &&other)noexcept {
+Team2::Team2(Team2 &&other)noexcept:Team(other) {
   leader = other.leader;
   team = other.team;
 }
@@ -29,7 +29,7 @@ void Team2::add(Character *member) {
   team.push_back(member);
 }
 
-void Team2::attack(Team2 *other) {}
+void Team2::attack(Team *other) {}
 
 int Team2::stillAlive() { return 0; }
 

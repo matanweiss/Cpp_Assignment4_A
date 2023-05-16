@@ -2,11 +2,14 @@
 #include "Character.hpp"
 #include <vector>
 
-SmartTeam::SmartTeam(const SmartTeam &other) : leader(other.leader) {}
+SmartTeam::SmartTeam(const SmartTeam &other)
+    : Team(other), leader(other.leader) {}
 
-SmartTeam::SmartTeam(Character *leader) : leader(leader) { team.push_back(leader); }
+SmartTeam::SmartTeam(Character *leader) : Team(leader), leader(leader) {
+  team.push_back(leader);
+}
 
-SmartTeam::SmartTeam(SmartTeam &&other)noexcept {
+SmartTeam::SmartTeam(SmartTeam &&other) noexcept : Team(other) {
   leader = other.leader;
   team = other.team;
 }
@@ -17,7 +20,7 @@ SmartTeam &SmartTeam::operator=(const SmartTeam &other) {
   return *this;
 }
 
-SmartTeam &SmartTeam::operator=( SmartTeam &&other) noexcept{
+SmartTeam &SmartTeam::operator=(SmartTeam &&other) noexcept {
   leader = other.leader;
   team = other.team;
   return *this;
@@ -29,7 +32,7 @@ void SmartTeam::add(Character *member) {
   team.push_back(member);
 }
 
-void SmartTeam::attack(SmartTeam *other) {}
+void SmartTeam::attack(Team *other) {}
 
 int SmartTeam::stillAlive() { return 0; }
 
