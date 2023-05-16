@@ -1,6 +1,8 @@
 #include "doctest.h"
 #include "sources/Cowboy.hpp"
+#include "sources/Ninja.hpp"
 #include "sources/Team.hpp"
+#include "sources/SmartTeam.hpp"
 
 TEST_CASE("Point test") {
   Point p1(0, 3);
@@ -19,7 +21,7 @@ TEST_CASE("Point test") {
   CHECK(p1.distance(p4) == p1.distance(p2));
 }
 
-TEST_CASE("Team test") {
+TEST_CASE("Cowboy test") {
   Cowboy c("Yossi", Point(1, 2));
   OldNinja o("Oogway", Point(5, 5));
 
@@ -38,6 +40,16 @@ TEST_CASE("Team test") {
   c.shoot(&o);
   CHECK(hp == o.getHealth());
   CHECK_FALSE(c.hasBullets());
+}
+
+TEST_CASE("Ninja test"){
+  TrainedNinja t("Shimi",Point(0,0));
+  OldNinja o("Tavor",Point(0,2));
+  
+  // slash doesn't damage when enemy further than 1m
+  int beforeHP = o.getHealth();
+  t.slash(&o);
+  CHECK(beforeHP==o.getHealth());
 }
 
 TEST_CASE("Team test") {
@@ -64,4 +76,32 @@ TEST_CASE("Team test") {
   t1.add(new Cowboy("Amnon", Point(3, 1)));
   t1.add(new Cowboy("Amnon", Point(3, 1)));
   CHECK_THROWS(t1.add(new Cowboy("Amnon", Point(3, 1))));
+}
+
+TEST_CASE("SmartTeam test"){
+  Cowboy c1("c1",Point(0,0));
+  Cowboy c2("c2",Point(0,0));
+  Cowboy c3("c3",Point(0,0));
+  OldNinja n1("n1",Point(0,1));
+  TrainedNinja n2("n2",Point(0,1));
+  YoungNinja n3("n3",Point(0,1));
+  SmartTeam st(&c1);
+  Team t(&c1);
+  st.add(&c2);
+  t.add(&c2);
+  st.add(&c3);
+  t.add(&c3);
+  st.add(&n1);
+  t.add(&n1);
+  st.add(&n2);
+  t.add(&n2);
+  st.add(&n3);
+  t.add(&n3);
+  while(t.stillAlive()&&st.stillAlive()){
+    st.attack(&t);
+    if(t.stillAlive())
+      t.attack(&st);
+  }
+  CHECK(st.stillAlive());
+  CHECK_FALSE(t.stillAlive());
 }

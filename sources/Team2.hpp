@@ -1,9 +1,8 @@
 #pragma once
-#include "Cowboy.hpp"
-#include "Ninja.hpp"
+#include "Team.hpp"
 #include <vector>
 
-class Team2 {
+class Team2:public Team {
   Character *leader;
   vector<Character *> team;
 
@@ -14,7 +13,7 @@ public:
   Team2& operator=(const Team2& other);
   Team2& operator=( Team2&& other)noexcept;
   void add(Character *member);
-  void attack(Team2 *other);
+  void attack(Team *other);
   int stillAlive();
   void print();
   ~Team2();
