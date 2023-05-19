@@ -3,6 +3,8 @@
 #include <string>
 #include <cmath>
 
+using namespace std;
+
 class Point
 {
     double xAxis;
@@ -11,6 +13,6 @@ class Point
 public:
     Point(double xAxis, double yAxis);
     double distance(const Point& other);
-    void print();
+    string print();
     static Point moveTowards(Point src, Point dest, double distance);
 };
