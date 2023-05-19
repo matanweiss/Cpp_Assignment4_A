@@ -17,23 +17,7 @@ public:
   void slash(Character *enemy);
 };
 
-class YoungNinja : public Ninja {
 
-public:
-  YoungNinja(string name, const Point &location)
-      : Ninja(std::move(name), location, YOUNG_NINJA_HP, YOUNG_NINJA_SPEED) {}
-};
 
-class TrainedNinja : public Ninja {
 
-public:
-  TrainedNinja(string name, const Point &location)
-      : Ninja(std::move(name), location, TRAINED_NINJA_HP, TRAINED_NINJA_SPEED) {}
-};
 
-class OldNinja : public Ninja {
-
-public:
-  OldNinja(string name, const Point &location)
-      : Ninja(std::move(name), location, OLD_NINJA_HP, OLD_NINJA_SPEED) {}
-};
