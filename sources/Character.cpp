@@ -14,5 +14,6 @@ double Character::distance(const Character &other) {
 }
 void Character::hit(int damage) { health = max(0, health - damage); }
 string Character::getName() { return name; }
-Point Character::getLocation() { return location; }
+Point Character::getLocation() const { return location; }
+void Character::setLocation(Point newLocation) { location = newLocation; }
 int Character::getHealth() { return health; }

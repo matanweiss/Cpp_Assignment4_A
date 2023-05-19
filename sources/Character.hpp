@@ -14,6 +14,7 @@ public:
   void hit(int damage);
   string getName();
   virtual string print() = 0;
-  Point getLocation();
+  Point getLocation() const;
+  void setLocation(Point newLocation);
   int getHealth();
 };
