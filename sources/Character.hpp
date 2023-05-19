@@ -13,7 +13,7 @@ public:
   double distance(const Character &other);
   void hit(int damage);
   string getName();
+  virtual string print() = 0;
   Point getLocation();
-  string print();
   int getHealth();
 };

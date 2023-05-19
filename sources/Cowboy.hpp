@@ -9,4 +9,5 @@ public:
   void shoot(Character* enemy);
   bool hasBullets();
   void reload();
+  string print() override;
 };

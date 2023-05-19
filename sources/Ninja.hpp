@@ -15,6 +15,7 @@ public:
   Ninja(string name, const Point &location, int health, int speed);
   void move(const Character *enemy);
   void slash(Character *enemy);
+  string print() override;
 };
 
 
