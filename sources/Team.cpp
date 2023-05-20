@@ -34,7 +34,14 @@ void Team::attack(Team *other) {
   leader = findAliveMember(this);
   Character *target = findAliveMember(other);
   for (Character *member : members) {
-    if (!member->isAlive())
+    if (member->getIsNinja())
+      continue;
+    if (!target->isAlive())
+      target = findAliveMember(other);
+    member->attack(target);
+  }
+  for (Character *member : members) {
+    if (!member->getIsNinja())
       continue;
     if (!target->isAlive())
       target = findAliveMember(other);
