@@ -5,10 +5,12 @@
 #include "YoungNinja.hpp"
 #include <string>
 
-Character::Character(string name, const Point &location, int health)
-    : name(name), location(location), health(health) {}
+Character::Character(string name, const Point &location, int health,
+                     bool isNinja)
+    : name(name), location(location), health(health), isNinja(isNinja) {}
 
 bool Character::isAlive() { return 0 < health; }
+bool Character::getIsNinja() { return isNinja; }
 double Character::distance(const Character &other) {
   return location.distance(other.location);
 }

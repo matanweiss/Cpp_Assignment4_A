@@ -10,4 +10,5 @@ public:
   bool hasBullets();
   void reload();
   string print() override;
+  void attack(Character * enemy) override;
 };

@@ -1,4 +1,5 @@
 #pragma once
+#include "Character.hpp"
 #include "Cowboy.hpp"
 #include "Ninja.hpp"
 #include "OldNinja.hpp"
@@ -8,7 +9,7 @@
 
 class Team {
   Character *leader;
-  vector<Character *> team;
+  vector<Character *> members;
 
 public:
   Team(const Team& other);
@@ -20,6 +21,7 @@ public:
   void attack(Team *other);
   int stillAlive();
   void print();
+  Character* findAliveMember(Team* team);
   ~Team();
 };
 

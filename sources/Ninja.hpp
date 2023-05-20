@@ -16,6 +16,7 @@ public:
   void move(const Character *enemy);
   void slash(Character *enemy);
   string print() override;
+  void attack(Character* enemy) override;
 };
 
 
